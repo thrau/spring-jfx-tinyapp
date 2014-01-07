@@ -1,0 +1,21 @@
+.mainBorderPane {
+    -fx-background-color: #293134;
+}
+
+.mainBorderPane Text {
+    -fx-fill: #F9F9F9;
+}
+
+.mainBorderPane .button {
+    -fx-background-color: #788a73;
+    -fx-text-fill: #F9F9F9;
+}
+
+.mainBorderPane .button:hover {
+    -fx-border-radius: 0;
+    -fx-background-color: #8c9e87;
+}
+
+.mainBorderPane .button:pressed {
+    -fx-background-color: #62725f;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="at.ac.tuwien.ifs.tinyapp.ui.MainController"
+            minHeight="200.0" minWidth="600.0" styleClass="mainBorderPane">
+
+  <stylesheets>
+    <URL value="@../css/style.css"/>
+  </stylesheets>
+
+  <center>
+    <VBox alignment="center" spacing="25">
+      <Text fx:id="label" />
+      <Button text="Generate" onAction="#regenerate"/>
+    </VBox>
+  </center>
+
+</BorderPane>
+
