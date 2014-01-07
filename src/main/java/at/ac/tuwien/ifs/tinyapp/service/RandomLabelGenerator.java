@@ -21,7 +21,11 @@ public class RandomLabelGenerator implements LabelGenerator {
         "Who has two thumbs and remembers the rudiments of his linear algebra courses?"
     };
 
-    public Random rng = new Random();
+    private Random rng = new Random();
+
+    void setRandomNumberGenerator(Random rng) {
+        this.rng = rng;
+    }
 
     @Override
     public String generate() {
@@ -35,5 +39,4 @@ public class RandomLabelGenerator implements LabelGenerator {
     private String getLabel(int index) {
         return LABELS[index];
     }
-
 }
