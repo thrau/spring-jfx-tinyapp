@@ -7,7 +7,7 @@ This is a sample application that demonstrates how JavaFX and Spring can integra
 
 Building it with maven will require to have JavaFX in your classpath. The Zen Java JavaFX plugin [1] can do this for you.
 
-   mvn clean install
+    mvn clean install
 
 
 You can then run the application by executing
