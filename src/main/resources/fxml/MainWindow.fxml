@@ -14,10 +14,9 @@
 
   <center>
     <VBox alignment="center" spacing="25">
-      <Text fx:id="label" />
+      <Text fx:id="label"/>
       <Button text="Generate" onAction="#regenerate"/>
     </VBox>
   </center>
 
 </BorderPane>
-

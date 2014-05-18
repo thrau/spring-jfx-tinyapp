@@ -1,5 +1,6 @@
 package at.ac.tuwien.ifs.tinyapp;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -12,11 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class App extends javafx.application.Application {
 
-    public static final String[] CONFIG_LOCATIONS = {
-        "applicationContext.xml"
-    };
-
-    public static final ApplicationContext APPLICATION_CONTEXT = new ClassPathXmlApplicationContext(CONFIG_LOCATIONS);
+    public static final String[] CONFIG_LOCATIONS = { "applicationContext.xml" };
 
     public static void main(String[] args) {
         launch();
@@ -24,14 +21,18 @@ public class App extends javafx.application.Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLSpringLoader loader = new FXMLSpringLoader(APPLICATION_CONTEXT);
+        ApplicationContext context = new ClassPathXmlApplicationContext(CONFIG_LOCATIONS);
 
-        stage.setScene(new Scene((Pane) loader.load("fxml/MainWindow.fxml")));
+        BeanFactoryCallback controllerFactory = context.getBean(BeanFactoryCallback.class);
 
-        // Alternatively you could use
-        // loader.setLocation(getClass().getClassLoader().getResource("fxml/"));
-        // loader.load("MainWindow.fxml")));
+        FXMLLoader loader = new FXMLLoader();
 
+        // instances of controllers declared by fx:controller attributes are now retrieved using the BeanFactoryCallback
+        loader.setControllerFactory(controllerFactory);
+
+        loader.setLocation(getClass().getClassLoader().getResource("fxml/MainWindow.fxml"));
+
+        stage.setScene(new Scene((Pane) loader.load()));
         stage.setTitle("Tinyapp");
         stage.show();
     }

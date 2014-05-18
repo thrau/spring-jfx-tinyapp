@@ -9,7 +9,7 @@
 
   <context:annotation-config/>
 
-  <context:component-scan base-package="at.ac.tuwien.ifs.tinyapp.*"/>
+  <context:component-scan base-package="at.ac.tuwien.ifs.tinyapp"/>
 
   <!-- config without annotations
   <bean id="labelGenerator" class="at.ac.tuwien.ifs.tinyapp.service.RandomLabelGenerator"/>
