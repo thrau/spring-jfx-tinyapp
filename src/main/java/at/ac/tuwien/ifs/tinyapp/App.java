@@ -21,13 +21,17 @@ public class App extends javafx.application.Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        // construct a new application context from an xml file in the classpath
         ApplicationContext context = new ClassPathXmlApplicationContext(CONFIG_LOCATIONS);
 
+        // by creating the instance of an ApplicationContextAware class through the ApplicationContext, that context is
+        // injected into the ApplicationContextAware class by spring automatcially
         BeanFactoryCallback controllerFactory = context.getBean(BeanFactoryCallback.class);
 
         FXMLLoader loader = new FXMLLoader();
 
         // instances of controllers declared by fx:controller attributes are now retrieved using the BeanFactoryCallback
+        // instead of using the JavaFX internal instantiation mechanisms
         loader.setControllerFactory(controllerFactory);
 
         loader.setLocation(getClass().getClassLoader().getResource("fxml/MainWindow.fxml"));
